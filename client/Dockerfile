@@ -10,7 +10,7 @@ COPY . .
 RUN npm run build
 
 # using NGINX for wSGI
-FROM NGINX
+FROM nginx
 EXPOSE 3000
 COPY --from=builder ./nginx_conf/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /usr/share/nginx/html
